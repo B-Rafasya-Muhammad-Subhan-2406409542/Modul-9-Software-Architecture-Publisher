@@ -5,3 +5,5 @@ Program publisher akan mengirimkan 5 data (*event messages*) ke dalam antrean *m
 
 **b. The url of: "amqp://guest:guest@localhost:5672" is the same as in the subscriber program, what does it mean?**
 Hal tersebut menandakan bahwa program *publisher* dan *subscriber* terhubung ke server *message broker* (RabbitMQ) yang sama persis. Karena mereka berada pada koneksi dan antrean (*queue*) yang sama, *publisher* dapat mengirimkan pesan yang kemudian dapat didengar (listen) dan dikonsumsi secara langsung oleh *subscriber*.
+
+![alt text](images/image.png)
