@@ -15,3 +15,7 @@ Hal tersebut menandakan bahwa program *publisher* dan *subscriber* terhubung ke 
 ## RabbitMQ Monitoring
 ![RabbitMQ Message Rate Graph](images/rabbitmq_monitoring_spike.png)
 Lonjakan (spike) pada grafik menunjukkan momen ketika program publisher mengirimkan 5 pesan ke message broker. Karena pesan tersebut langsung dikonsumsi oleh subscriber, grafik kembali ke titik nol setelah proses selesai.
+
+## RabbitMQ Queued Messages
+![RabbitMQ Queued Messages](images/rabbitmq_queued_messages.png)
+Di mesin saya, jumlah antrean memuncak di angka 11. Hal ini terjadi karena saya menjalankan program publisher sebanyak 5 kali secara cepat (total 25 pesan). Mengingat subscriber telah diatur untuk *sleep* selama 1 detik per pesan, subscriber tidak bisa mengimbangi kecepatan datangnya pesan. Akibatnya, pesan-pesan tersebut menumpuk di dalam antrean (mencapai tumpukan maksimal 11 pesan dalam satu waktu) sebelum akhirnya perlahan diproses satu per satu.
